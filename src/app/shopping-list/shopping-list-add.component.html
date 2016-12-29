@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-12">
+    <form id="shopping-list-add" (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+      <div class="row">
+        <div class="form-group col-sm-5">
+          <label for="item-name">Name</label>
+          <input type="text" id="item-name" [ngModel]="item.name" name="name" required class="form-control" />
+        </div>
+
+        <div class="col-sm-2 form-group">
+          <label for="item-amount">Amount</label>
+          <input type="text" id="item-amount" [ngModel]="item.amount" name="amount" required class="form-control" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <button class="btn btn-success" type="submit" *ngIf="isAdd" [disabled]="!f.valid">Add</button>
+          <button class="btn btn-danger" type="submit" *ngIf="!isAdd" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-danger" type="button" (click)="onDelete()" *ngIf="!isAdd">Delete Item</button>
+          <button class="btn btn-primary" type="button" *ngIf="!isAdd" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
